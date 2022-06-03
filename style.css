@@ -23,7 +23,7 @@
 
 html {
     background-color: var(--bg);
-    /*font-family:;*/
+    font-family: 'Inter', sans-serif;
     color: var(--primary)
 }
 
@@ -305,6 +305,7 @@ form > div {
     margin-bottom: 1.75em;
 }
 
+
 div.inputDescription {
     margin-top: 0.25em;
     color: var(--error-color);
@@ -321,7 +322,7 @@ input.invalid {
 .contactButton {
     box-shadow: 0 0 4px 2px #ddd;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 400;
     padding: .9rem 1.8rem;
     text-decoration: none;
     color: var(--white);
@@ -356,6 +357,7 @@ input.invalid {
     margin: 0;
 
 }
+
 .destroyer-container-vertical {
     width: 40px;
     height: 80px;
@@ -375,6 +377,7 @@ input.invalid {
 
     display: flex;
 }
+
 .submarine-container-vertical {
     width: 40px;
     height: 120px;
@@ -392,6 +395,7 @@ input.invalid {
 
     display: flex;
 }
+
 .cruiser-container-vertical {
     width: 40px;
     height: 120px;
@@ -410,6 +414,7 @@ input.invalid {
 
     display: flex;
 }
+
 .battleship-container-vertical {
     width: 40px;
     height: 160px;
@@ -427,6 +432,7 @@ input.invalid {
     border: 2px solid blue;
     display: flex;
 }
+
 .carrier-container-vertical {
     width: 40px;
     height: 200px;
@@ -446,8 +452,31 @@ input.invalid {
     background: rgba(0, 0, 0, 5%);
 }
 
+#table {
+    display: flex;
+    align-items: end;
+    gap: 0.7rem;
+}
 
-table {
+#table div:first-child {
+    display: flex;
+    flex-direction: column;
+    height: 410px;
+}
+
+#table div:first-child p {
+    font-weight: 600;
+    font-size: 1.4rem;
+    height: 100%;
+    margin-bottom: 0;
+    margin-top: 0.3rem;
+    display: table-cell;
+    vertical-align: central;
+    text-align: center;
+
+}
+
+table.field {
     border-spacing: 0.04rem;
     padding: 0;
     table-layout: fixed;
@@ -456,18 +485,52 @@ table {
 
 
 }
+
 tbody {
     align-items: center;
+
 }
-td.cube {
+
+.field th {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding-bottom: 0.2rem;
+}
+
+.field td.cube {
     height: 41px;
     width: 41px;
+    border: solid #000 1px;
+    border-collapse: collapse;
+    padding: 0;
+}
+
+.targets:hover {
+    background: red;
+    cursor: url(bx_target-lock.svg) 15 15, pointer;
+}
+
+
+table.fieldOwn {
+    border-spacing: 0.04rem;
+    padding: 0;
+    table-layout: fixed;
+    width: 210px;
+    height: 210px;
+
+
+}
+
+.fieldOwn td.own {
+    height: 21px;
+    width: 21px;
     border: solid black 1px;
     border-collapse: collapse;
     padding: 0;
 }
 
-main.gamePage  {
+
+main.gamePage {
     display: flex;
     justify-content: center;
     gap: 10rem;
@@ -495,9 +558,18 @@ main.gamePage  {
     padding: 0.5rem 1rem;
     border-radius: 2px;
 }
+
 .rotate:hover {
     background-color: rgb(1, 5, 56);
     border: rgb(42, 42, 248) solid 3px;
+}
+
+.popUp {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* FOOTER */
