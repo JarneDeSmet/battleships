@@ -29,6 +29,7 @@ let player2Shots = {
 };
 let playerTurn = 1;
 const actionButton = document.querySelector('.action');
+const readyButton = document.querySelector('#ready');
 
 
 let grid = document.querySelectorAll('.cube');
@@ -441,8 +442,9 @@ actionButton.addEventListener("click", function () {
         ready = true;
         playerTurn = 1;
         info.innerHTML = 'Player 1 take your first shot';
-        setOwnfield();
         resetField();
+
+
 
         if (ready) {
             schepen.forEach(item => {
@@ -467,7 +469,7 @@ actionButton.addEventListener("click", function () {
 
                     })*/
                 cube.addEventListener('click', function () {
-                    resetField()
+                    //resetField()
                     let alreadyHit;
                     if (playerTurn === 1) {
                         player1Shots.shots.forEach(shot => {
@@ -489,22 +491,20 @@ actionButton.addEventListener("click", function () {
 
                     if (!alreadyHit) {
                         checkHit(this);
-
                         if (playerTurn === 1) {
                             playerTurn = 2;
                             resetOwnField()
-                            setOwnfield()
-                            setHitfield()
-                            info.innerHTML = `Player ${playerTurn} take your shot`;
-
                         } else if (playerTurn === 2) {
                             playerTurn = 1;
                             resetOwnField()
+                        }
+
+                        readyButton.addEventListener('click', function () {
+                            resetField()
                             setOwnfield()
                             setHitfield()
                             info.innerHTML = `Player ${playerTurn} take your shot`;
-
-                        }
+                        });
 
 
                     }
@@ -632,7 +632,9 @@ function checkHit(cube) {
                 player2Shots.shots.push(boot.beginCO);
                 player2Shots.totalHits++;
             }
+
             console.log('hit begin')
+            info.innerHTML = 'HIT!';
             hit = true;
         } else if (boot.eindCO[0] + "," + boot.eindCO[1] === cube.parentElement.rowIndex + ',' + cube.cellIndex) {
             if (playerTurn === 1) {
@@ -645,6 +647,7 @@ function checkHit(cube) {
                 player2Shots.totalHits++;
             }
             console.log('hit eind')
+            info.innerHTML = 'HIT!';
             hit = true;
         } else if (boot.middenCO[0] + "," + boot.middenCO[1] === cube.parentElement.rowIndex + ',' + cube.cellIndex) {
             if (playerTurn === 1) {
@@ -657,6 +660,7 @@ function checkHit(cube) {
                 player2Shots.totalHits++;
             }
             console.log('hit 2e plaats')
+            info.innerHTML = 'HIT!';
             hit = true;
         } else if (boot[0].length > 3) {
             if (boot.middenCO2[0] + "," + boot.middenCO2[1] === cube.parentElement.rowIndex + ',' + cube.cellIndex) {
@@ -670,6 +674,7 @@ function checkHit(cube) {
                     player2Shots.totalHits++;
                 }
                 console.log('hit 3e plaats')
+                info.innerHTML = 'HIT!';
                 hit = true;
             } else if (boot[0].length > 4) {
                 if (boot.middenCO3[0] + "," + boot.middenCO3[1] === cube.parentElement.rowIndex + ',' + cube.cellIndex) {
@@ -683,29 +688,31 @@ function checkHit(cube) {
                         player2Shots.totalHits++;
                     }
                     console.log('hit 4e plaats')
+                    info.innerHTML = 'HIT!';
                     hit = true;
-                }
-            } else if (!hit) {
-                console.log('misssss')
-                if (playerTurn === 1) {
-                    player1Shots.misses.push([cube.parentElement.rowIndex, cube.cellIndex]);
-                    player1Shots.shots.push([cube.parentElement.rowIndex, cube.cellIndex]);
-
-                } else if (playerTurn === 2) {
-                    player2Shots.misses.push([cube.parentElement.rowIndex, cube.cellIndex]);
-                    player2Shots.shots.push([cube.parentElement.rowIndex, cube.cellIndex]);
-
                 }
             }
         }
 
-
     })
+    if (!hit) {
+        console.log('misssss')
+        info.innerHTML = 'MIS!';
+        if (playerTurn === 1) {
+            player1Shots.misses.push([cube.parentElement.rowIndex, cube.cellIndex]);
+            player1Shots.shots.push([cube.parentElement.rowIndex, cube.cellIndex]);
+
+        } else if (playerTurn === 2) {
+            player2Shots.misses.push([cube.parentElement.rowIndex, cube.cellIndex]);
+            player2Shots.shots.push([cube.parentElement.rowIndex, cube.cellIndex]);
+
+        }
+    }
 
 }
 
 
-function gameLoop() {
+/*function gameLoop() {
     if (ready) {
 
     }
@@ -713,7 +720,7 @@ function gameLoop() {
 }
 
 
-requestAnimationFrame(gameLoop);
+requestAnimationFrame(gameLoop);*/
 
 
 
