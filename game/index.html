@@ -9,12 +9,21 @@
     <link href="../style.css" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&display=swap" rel="stylesheet">
+
     <title>GameTest</title>
 </head>
 <body>
-
+<h1 class="info">Player 1 choose your boats</h1>
+<Div class="popUp"><p>give pc to your opponent</p>
+    <button id="ready">ready</button>
+</Div>
 <main class="gamePage">
+
     <div>
+        <button class="action">confirm</button>
         <button class="rotate">Rotate</button>
         <div class="grid-display ">
             <div id="destroyer" class="ship destroyer-container  " draggable="true">
@@ -46,137 +55,290 @@
             </div>
         </div>
     </div>
+    <div>
+        <div id="table">
+            <div>
+                <p>A</p>
+                <p>B</p>
+                <p>C</p>
+                <p>D</p>
+                <p>E</p>
+                <p>F</p>
+                <p>G</p>
+                <p>H</p>
+                <p>I</p>
+                <p>J</p>
+            </div>
+            <table class="field">
+                <thead>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                    <th>10</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                </tr>
+                <tr>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                </tr>
+                <tr>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                </tr>
+                <tr>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                </tr>
+                <tr>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                </tr>
+                <tr>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                </tr>
+                <tr>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                </tr>
+                <tr>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                </tr>
+                <tr>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                </tr>
+                <tr>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                    <td class="cube"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <table class="field">
-        <thead>
-        <tr>
-            <th colspan="10">Your field</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-        </tr>
-        <tr>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-        </tr>
-        <tr>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-        </tr>
-        <tr>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-        </tr>
-        <tr>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-        </tr>
-        <tr>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-        </tr>
-        <tr>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-        </tr>
-        <tr>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-        </tr>
-        <tr>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-        </tr>
-        <tr>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-            <td class="cube"></td>
-        </tr>
-        </tbody>
-    </table>
-
+        <table class="fieldOwn">
+            <thead>
+            <tr>
+                <th colspan="10">Your field</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+            </tr>
+            <tr>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+            </tr>
+            <tr>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+            </tr>
+            <tr>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+            </tr>
+            <tr>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+            </tr>
+            <tr>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+            </tr>
+            <tr>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+            </tr>
+            <tr>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+            </tr>
+            <tr>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+            </tr>
+            <tr>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+                <td class="own"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 </main>
 <script src="game.js"></script>
