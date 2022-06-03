@@ -7,12 +7,14 @@ const submarine = document.querySelector('#submarine');
 const cruiser = document.querySelector('#cruiser');
 const battleship = document.querySelector('#battleship');
 const carrier = document.querySelector('#carrier');
+
 let vertical = false;
 let placed = false;
 let ready = false;
 let border = ' 2px solid blue';
 
 const info = document.querySelector('.info');
+
 const player1Field = [];
 let player1Shots = {
     shots: [],
@@ -27,7 +29,9 @@ let player2Shots = {
     misses: [],
     totalHits: 0
 };
+
 let playerTurn = 1;
+
 const actionButton = document.querySelector('.action');
 const readyButton = document.querySelector('#ready');
 
@@ -48,7 +52,6 @@ function dragStart() {
     dragItem = this;
     setTimeout(() => this.classList.add('invisible'), 0)
 }
-
 function dragEnd() {
     if (!placed) {
         setTimeout(() => this.classList.remove('invisible'), 0)
@@ -56,25 +59,19 @@ function dragEnd() {
     console.log('drag ended');
     dragItem = null;
 }
-
 function dragOver(e) {
     e.preventDefault()
     this.classList.toggle('hover');
     console.log('drag over');
 }
-
 function dragEnter() {
     console.log('drag entered');
 }
-
 function dragLeave() {
     console.log('drag left');
 }
-
 function dragDrop() {
-
     console.log('drag dropped');
-
 
     if (dragItem === destroyer) {
         let destroyerCO = [
@@ -92,7 +89,6 @@ function dragDrop() {
         console.log('check turn: ' + playerTurn);
 
         if (!vertical) {
-
             destroyerCO.middenCO = [this.parentElement.rowIndex, this.cellIndex + 1];
             destroyerCO.eindCO = [this.parentElement.rowIndex, this.cellIndex + 1];
 
@@ -112,6 +108,7 @@ function dragDrop() {
 
             field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
             field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.border = border;
+
             if (playerTurn === 1) {
                 player1Field.push(destroyerCO);
             } else if (playerTurn === 2) {
@@ -122,8 +119,8 @@ function dragDrop() {
         if (this.cellIndex >= 0) {
             placed = true;
         }
-    } else if (dragItem === submarine) {
 
+    } else if (dragItem === submarine) {
         let submarineCO = [
             {
                 name: 'submarine',
@@ -136,14 +133,16 @@ function dragDrop() {
         submarineCO.beginCO = [this.parentElement.rowIndex, this.cellIndex];
         this.style.backgroundColor = 'rgba(0, 0, 0, 10%)';
         this.style.border = border;
-        if (!vertical) {
 
+        if (!vertical) {
             submarineCO.middenCO = [this.parentElement.rowIndex, this.cellIndex + 1];
             submarineCO.eindCO = [this.parentElement.rowIndex, this.cellIndex + 2];
+
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.border = border;
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.border = border;
+
             if (playerTurn === 1) {
                 player1Field.push(submarineCO);
             } else if (playerTurn === 2) {
@@ -158,6 +157,7 @@ function dragDrop() {
             field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.border = border;
             field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
             field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.border = border;
+
             if (playerTurn === 1) {
                 player1Field.push(submarineCO);
             } else if (playerTurn === 2) {
@@ -168,6 +168,7 @@ function dragDrop() {
         if (this.cellIndex >= 0) {
             placed = true;
         }
+
     } else if (dragItem === cruiser) {
         let cruiserCO = [
             {
@@ -181,8 +182,8 @@ function dragDrop() {
         cruiserCO.beginCO = [this.parentElement.rowIndex, this.cellIndex];
         this.style.backgroundColor = 'rgba(0, 0, 0, 10%)';
         this.style.border = ' 2px solid blue';
-        if (!vertical) {
 
+        if (!vertical) {
             cruiserCO.middenCO = [this.parentElement.rowIndex, this.cellIndex + 1];
             cruiserCO.eindCO = [this.parentElement.rowIndex, this.cellIndex + 2];
 
@@ -190,6 +191,7 @@ function dragDrop() {
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.border = border;
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.border = border;
+
             if (playerTurn === 1) {
                 player1Field.push(cruiserCO);
             } else if (playerTurn === 2) {
@@ -229,8 +231,8 @@ function dragDrop() {
         battleshipCO.beginCO = [this.parentElement.rowIndex, this.cellIndex];
         this.style.backgroundColor = 'rgba(0, 0, 0, 10%)';
         this.style.border = ' 2px solid blue';
-        if (!vertical) {
 
+        if (!vertical) {
             battleshipCO.middenCO = [this.parentElement.rowIndex, this.cellIndex + 1];
             battleshipCO.middenCO2 = [this.parentElement.rowIndex, this.cellIndex + 2];
             battleshipCO.eindCO = [this.parentElement.rowIndex, this.cellIndex + 3];
@@ -241,6 +243,7 @@ function dragDrop() {
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.border = ' 2px solid blue';
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 3].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 3].style.border = border;
+
             if (playerTurn === 1) {
                 player1Field.push(battleshipCO);
             } else if (playerTurn === 2) {
@@ -344,183 +347,19 @@ function resetField() {
     })
 
 }
+function resetOwnField() {
+    gridOwn.forEach(cell => {
+        cell.style.background = 'none';
+        cell.style.border = '1px solid #000';
+    })
 
-
+}
 function resetSchepen() {
     schepen.forEach(schip => {
         schip.classList.remove('invisible')
     })
 
 }
-
-
-rotate.addEventListener("click", function () {
-    if (vertical) {
-        gridDisplay.style.display = 'revert';
-        if (gridDisplay.contains(destroyer)) {
-            destroyer.classList.add('destroyer-container');
-            destroyer.classList.remove('destroyer-container-vertical');
-        }
-
-        if (gridDisplay.contains(submarine)) {
-            submarine.classList.add('submarine-container');
-            submarine.classList.remove('submarine-container-vertical');
-        }
-        if (gridDisplay.contains(cruiser)) {
-            cruiser.classList.add("cruiser-container");
-            cruiser.classList.remove('cruiser-container-vertical');
-        }
-        if (gridDisplay.contains(battleship)) {
-            battleship.classList.add('battleship-container');
-            battleship.classList.remove('battleship-container-vertical');
-        }
-        if (gridDisplay.contains(carrier)) {
-            carrier.classList.add('carrier-container');
-            carrier.classList.remove('carrier-container-vertical');
-        }
-        vertical = false;
-
-    } else {
-        gridDisplay.style.display = 'flex';
-        if (gridDisplay.contains(destroyer)) {
-            destroyer.classList.remove('destroyer-container');
-            destroyer.classList.add('destroyer-container-vertical');
-        }
-
-        if (gridDisplay.contains(submarine)) {
-            submarine.classList.remove('submarine-container');
-            submarine.classList.add('submarine-container-vertical');
-        }
-        if (gridDisplay.contains(cruiser)) {
-            cruiser.classList.remove("cruiser-container");
-            cruiser.classList.add('cruiser-container-vertical');
-        }
-        if (gridDisplay.contains(battleship)) {
-            battleship.classList.remove('battleship-container');
-            battleship.classList.add('battleship-container-vertical');
-        }
-        if (gridDisplay.contains(carrier)) {
-            carrier.classList.remove('carrier-container');
-            carrier.classList.add('carrier-container-vertical');
-        }
-        vertical = true;
-
-    }
-
-
-});
-
-if (!ready) {
-    schepen.forEach(item => {
-        item.addEventListener('dragstart', dragStart)
-        item.addEventListener('dragend', dragEnd)
-    });
-    grid.forEach(cube => {
-        cube.addEventListener('dragover', dragOver);
-        cube.addEventListener('dragenter', dragEnter);
-        cube.addEventListener('dragleave', dragLeave);
-        cube.addEventListener('drop', dragDrop);
-
-    });
-}
-
-
-actionButton.addEventListener("click", function () {
-    if (player1Field.length < 5) {
-        console.log(player1Field.length)
-        info.innerHTML = 'Player 1 choose your boats';
-    } else if (player1Field.length === 5 && player2Field.length < 5) {
-        playerTurn = 2;
-        resetSchepen();
-        resetField();
-
-        info.innerHTML = 'Player 2 choose your boats';
-    }
-
-    if (player1Field.length === 5 && player2Field.length === 5) {
-
-        ready = true;
-        playerTurn = 1;
-        info.innerHTML = 'Player 1 take your first shot';
-        resetField();
-
-
-
-        if (ready) {
-            schepen.forEach(item => {
-                item.removeEventListener('dragstart', dragStart);
-                item.removeEventListener('dragend', dragEnd);
-            });
-            grid.forEach(cube => {
-
-                cube.removeEventListener('dragover', dragOver);
-                cube.removeEventListener('dragenter', dragEnter);
-                cube.removeEventListener('dragleave', dragLeave);
-                cube.removeEventListener('drop', dragDrop);
-                cube.classList.add('targets');
-                /*    cube.addEventListener('mouseover', function () {
-                        cube.style.background = 'red';
-                    })
-                    cube.addEventListener('mouseleave', function () {
-
-                            cube.style.background = 'none';
-
-
-
-                    })*/
-                cube.addEventListener('click', function () {
-                    //resetField()
-                    let alreadyHit;
-                    if (playerTurn === 1) {
-                        player1Shots.shots.forEach(shot => {
-                            if (shot[0] === cube.parentElement.rowIndex && shot[1] === cube.cellIndex) {
-                                info.innerHTML = `You already hit this spot`;
-                                alreadyHit = true;
-                                setHitfield()
-                            }
-                        })
-                    } else if (playerTurn === 2) {
-                        player2Shots.shots.forEach(shot => {
-                            if (shot[0] === cube.parentElement.rowIndex && shot[1] === cube.cellIndex) {
-                                info.innerHTML = `You already hit this spot`;
-                                alreadyHit = true;
-                                setHitfield()
-                            }
-                        })
-                    }
-
-                    if (!alreadyHit) {
-                        checkHit(this);
-                        if (playerTurn === 1) {
-                            playerTurn = 2;
-                            resetOwnField()
-                        } else if (playerTurn === 2) {
-                            playerTurn = 1;
-                            resetOwnField()
-                        }
-
-                        readyButton.addEventListener('click', function () {
-                            resetField()
-                            setOwnfield()
-                            setHitfield()
-                            info.innerHTML = `Player ${playerTurn} take your shot`;
-                        });
-
-
-                    }
-
-
-                })
-
-
-            });
-
-
-        }
-    }
-
-
-});
 
 function setOwnfield() {
 
@@ -577,7 +416,6 @@ function setOwnfield() {
     }
 
 }
-
 function setHitfield() {
     if (playerTurn === 1) {
         player1Shots.hits.forEach(hit => {
@@ -600,14 +438,6 @@ function setHitfield() {
         })
 
     }
-}
-
-function resetOwnField() {
-    gridOwn.forEach(cell => {
-        cell.style.background = 'none';
-        cell.style.border = '1px solid #000';
-    })
-
 }
 
 function checkHit(cube) {
@@ -711,16 +541,190 @@ function checkHit(cube) {
 
 }
 
+rotate.addEventListener("click", function () {
+    if (vertical) {
+        gridDisplay.style.display = 'revert';
+        if (gridDisplay.contains(destroyer)) {
+            destroyer.classList.add('destroyer-container');
+            destroyer.classList.remove('destroyer-container-vertical');
+        }
 
-/*function gameLoop() {
-    if (ready) {
+        if (gridDisplay.contains(submarine)) {
+            submarine.classList.add('submarine-container');
+            submarine.classList.remove('submarine-container-vertical');
+        }
+        if (gridDisplay.contains(cruiser)) {
+            cruiser.classList.add("cruiser-container");
+            cruiser.classList.remove('cruiser-container-vertical');
+        }
+        if (gridDisplay.contains(battleship)) {
+            battleship.classList.add('battleship-container');
+            battleship.classList.remove('battleship-container-vertical');
+        }
+        if (gridDisplay.contains(carrier)) {
+            carrier.classList.add('carrier-container');
+            carrier.classList.remove('carrier-container-vertical');
+        }
+        vertical = false;
+
+    } else {
+        gridDisplay.style.display = 'flex';
+        if (gridDisplay.contains(destroyer)) {
+            destroyer.classList.remove('destroyer-container');
+            destroyer.classList.add('destroyer-container-vertical');
+        }
+
+        if (gridDisplay.contains(submarine)) {
+            submarine.classList.remove('submarine-container');
+            submarine.classList.add('submarine-container-vertical');
+        }
+        if (gridDisplay.contains(cruiser)) {
+            cruiser.classList.remove("cruiser-container");
+            cruiser.classList.add('cruiser-container-vertical');
+        }
+        if (gridDisplay.contains(battleship)) {
+            battleship.classList.remove('battleship-container');
+            battleship.classList.add('battleship-container-vertical');
+        }
+        if (gridDisplay.contains(carrier)) {
+            carrier.classList.remove('carrier-container');
+            carrier.classList.add('carrier-container-vertical');
+        }
+        vertical = true;
 
     }
-    requestAnimationFrame(gameLoop);
+
+
+});
+
+if (!ready) {
+    schepen.forEach(item => {
+        item.addEventListener('dragstart', dragStart)
+        item.addEventListener('dragend', dragEnd)
+    });
+    grid.forEach(cube => {
+        cube.addEventListener('dragover', dragOver);
+        cube.addEventListener('dragenter', dragEnter);
+        cube.addEventListener('dragleave', dragLeave);
+        cube.addEventListener('drop', dragDrop);
+
+    });
 }
 
 
-requestAnimationFrame(gameLoop);*/
+actionButton.addEventListener("click", function () {
+    if (player1Field.length < 5) {
+        console.log(player1Field.length)
+        info.innerHTML = 'Player 1 choose your boats';
+
+    } else if (player1Field.length === 5 && player2Field.length < 5) {
+        playerTurn = 2;
+
+        resetSchepen();
+        resetField();
+
+        info.innerHTML = 'Player 2 choose your boats';
+    }
+
+    if (player1Field.length === 5 && player2Field.length === 5) {
+        ready = true;
+        playerTurn = 1;
+        info.innerHTML = 'Player 1 take your first shot';
+        resetField();
+
+        if (ready) {
+            schepen.forEach(item => {
+                item.removeEventListener('dragstart', dragStart);
+                item.removeEventListener('dragend', dragEnd);
+            });
+            grid.forEach(cube => {
+
+                cube.removeEventListener('dragover', dragOver);
+                cube.removeEventListener('dragenter', dragEnter);
+                cube.removeEventListener('dragleave', dragLeave);
+                cube.removeEventListener('drop', dragDrop);
+                cube.classList.add('targets');
+                /*    cube.addEventListener('mouseover', function () {
+                        cube.style.background = 'red';
+                    })
+                    cube.addEventListener('mouseleave', function () {
+
+                            cube.style.background = 'none';
+
+
+
+                    })*/
+                cube.addEventListener('click', function () {
+                    //resetField()
+                    let alreadyHit;
+                    if (playerTurn === 1) {
+                        player1Shots.shots.forEach(shot => {
+                            if (shot[0] === cube.parentElement.rowIndex && shot[1] === cube.cellIndex) {
+                                info.innerHTML = `You already hit this spot`;
+                                alreadyHit = true;
+                                setHitfield()
+                            }
+                        })
+                    } else if (playerTurn === 2) {
+                        player2Shots.shots.forEach(shot => {
+                            if (shot[0] === cube.parentElement.rowIndex && shot[1] === cube.cellIndex) {
+                                info.innerHTML = `You already hit this spot`;
+                                alreadyHit = true;
+                                setHitfield()
+                            }
+                        })
+                    }
+
+                    if (!alreadyHit) {
+                        checkHit(this);
+                        if (playerTurn === 1) {
+                            playerTurn = 2;
+                            resetOwnField()
+                        } else if (playerTurn === 2) {
+                            playerTurn = 1;
+                            resetOwnField()
+                        }
+
+                        readyButton.addEventListener('click', function () {
+                            resetField()
+                            setOwnfield()
+                            setHitfield()
+                            info.innerHTML = `Player ${playerTurn} take your shot`;
+                        });
+
+
+                    }
+
+
+                })
+
+
+            });
+
+
+        }
+    }
+
+
+});
+
+
+
+
+
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+})
+
+const hamb = document.querySelectorAll(".nav-link");
+hamb.forEach(n => n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}))
 
 
 
