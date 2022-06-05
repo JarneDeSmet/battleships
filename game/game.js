@@ -692,7 +692,7 @@ actionButton.addEventListener("click", function () {
                         if (player1Shots.totalHits === 17 || player2Shots.totalHits === 17) {
                             setHitfield()
                             info.innerHTML = `Player ${playerTurn} has won the battle`;
-                            const myTimeout = setTimeout(function () {
+                            setTimeout(function () {
                                 location.href = `../endScreen/?winner=${playerTurn}`;
                             }, 500);
 
@@ -704,7 +704,7 @@ actionButton.addEventListener("click", function () {
                                 playerTurn = 1;
                                 resetOwnField()
                             }
-                            const myTimeout = setTimeout(function () {
+                            setTimeout(function () {
                                 popUp.style.display = 'flex';
                             }, 300);
 
