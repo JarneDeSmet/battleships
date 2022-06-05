@@ -571,11 +571,17 @@ main.gamePage {
 }
 
 .popUp {
-    /* position: absolute;*/
-    display: flex;
+    display: none;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 2%;
+    top: 5%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgba(255, 255, 255, 90%);
+    padding: 10% 40% 25%;
+    border-radius: 5px;
 }
 
 

@@ -14,7 +14,7 @@ let ready = false;
 let border = ' 2px solid blue';
 
 const info = document.querySelector('.info');
-
+const popUp = document.querySelector('.popUp');
 const player1Field = [];
 let player1Shots = {
     shots: [],
@@ -635,6 +635,7 @@ actionButton.addEventListener("click", function () {
     }
 
     if (player1Field.length === 5 && player2Field.length === 5) {
+        actionButton.style.display = 'none';
         ready = true;
         playerTurn = 1;
         info.innerHTML = 'Player 1 take your first shot';
@@ -687,6 +688,7 @@ actionButton.addEventListener("click", function () {
 
                     if (!alreadyHit) {
                         checkHit(this);
+                        setHitfield()
                         if (player1Shots.totalHits === 17 || player2Shots.totalHits === 17) {
                             setHitfield()
                             info.innerHTML = `Player ${playerTurn} has won the battle`;
@@ -702,8 +704,12 @@ actionButton.addEventListener("click", function () {
                                 playerTurn = 1;
                                 resetOwnField()
                             }
+                            const myTimeout = setTimeout(function () {
+                                popUp.style.display = 'flex';
+                            }, 300);
 
                             readyButton.addEventListener('click', function () {
+                                popUp.style.display = 'none';
                                 resetField()
                                 setOwnfield()
                                 setHitfield()
