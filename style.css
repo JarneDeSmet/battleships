@@ -572,6 +572,27 @@ main.gamePage {
     align-items: center;
 }
 
+
+/*winner*/
+.winner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.winner > h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.winner > h2 {
+    margin-top: 0.5rem;
+    font-weight: 300;
+}
 /* FOOTER */
 
 

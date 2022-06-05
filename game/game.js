@@ -52,6 +52,7 @@ function dragStart() {
     dragItem = this;
     setTimeout(() => this.classList.add('invisible'), 0)
 }
+
 function dragEnd() {
     if (!placed) {
         setTimeout(() => this.classList.remove('invisible'), 0)
@@ -59,17 +60,21 @@ function dragEnd() {
     console.log('drag ended');
     dragItem = null;
 }
+
 function dragOver(e) {
     e.preventDefault()
     this.classList.toggle('hover');
     console.log('drag over');
 }
+
 function dragEnter() {
     console.log('drag entered');
 }
+
 function dragLeave() {
     console.log('drag left');
 }
+
 function dragDrop() {
     console.log('drag dropped');
 
@@ -347,6 +352,7 @@ function resetField() {
     })
 
 }
+
 function resetOwnField() {
     gridOwn.forEach(cell => {
         cell.style.background = 'none';
@@ -354,6 +360,7 @@ function resetOwnField() {
     })
 
 }
+
 function resetSchepen() {
     schepen.forEach(schip => {
         schip.classList.remove('invisible')
@@ -416,6 +423,7 @@ function setOwnfield() {
     }
 
 }
+
 function setHitfield() {
     if (playerTurn === 1) {
         player1Shots.hits.forEach(hit => {
@@ -655,6 +663,8 @@ actionButton.addEventListener("click", function () {
 
                     })*/
                 cube.addEventListener('click', function () {
+
+
                     //resetField()
                     let alreadyHit;
                     if (playerTurn === 1) {
@@ -677,25 +687,33 @@ actionButton.addEventListener("click", function () {
 
                     if (!alreadyHit) {
                         checkHit(this);
-                        if (playerTurn === 1) {
-                            playerTurn = 2;
-                            resetOwnField()
-                        } else if (playerTurn === 2) {
-                            playerTurn = 1;
-                            resetOwnField()
+                        if (player1Shots.totalHits === 17 || player2Shots.totalHits === 17) {
+                            setHitfield()
+                            info.innerHTML = `Player ${playerTurn} has won the battle`;
+                            const myTimeout = setTimeout(function () {
+                                location.href = `../endScreen/?winner=${playerTurn}`;
+                            }, 500);
+
+                        } else {
+                            if (playerTurn === 1) {
+                                playerTurn = 2;
+                                resetOwnField()
+                            } else if (playerTurn === 2) {
+                                playerTurn = 1;
+                                resetOwnField()
+                            }
+
+                            readyButton.addEventListener('click', function () {
+                                resetField()
+                                setOwnfield()
+                                setHitfield()
+                                info.innerHTML = `Player ${playerTurn} take your shot`;
+                            });
+
+
                         }
 
-                        readyButton.addEventListener('click', function () {
-                            resetField()
-                            setOwnfield()
-                            setHitfield()
-                            info.innerHTML = `Player ${playerTurn} take your shot`;
-                        });
-
-
                     }
-
-
                 })
 
 
@@ -707,9 +725,6 @@ actionButton.addEventListener("click", function () {
 
 
 });
-
-
-
 
 
 const hamburger = document.querySelector(".hamburger");

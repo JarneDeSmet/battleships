@@ -1,49 +1,6 @@
 'use strict';
 (function () {
 
-    //fullscreen (jarne)
-    const elem = document.querySelector('#fullscreen');
-    const screen = document.querySelector("main");
-    const top_left = document.querySelector('.top_left')
-    const top_right = document.querySelector('.top_right')
-    const bottom_left = document.querySelector('.bottom_left')
-    const bottom_right = document.querySelector('.bottom_right')
-
-    const fullscreen = function () {
-        screen.requestFullscreen({navigationUI: "hide"})
-            .catch((err) => console.error(err))
-    }
-    const exitfullscreen = function () {
-        document.exitFullscreen()
-            .catch((err) => console.error(err));
-
-    }
-    elem.addEventListener('click', function () {
-        if (document.fullscreenElement) {
-            exitfullscreen();
-            top_left.classList.add("top_left");
-            top_right.classList.add("top_right");
-            bottom_left.classList.add("bottom_left");
-            bottom_right.classList.add("bottom_right");
-            top_left.classList.remove("top_leftFull");
-            top_right.classList.remove("top_rightFull");
-            bottom_left.classList.remove("bottom_leftFull");
-            bottom_right.classList.remove("bottom_rightFull");
-
-        } else {
-            fullscreen();
-            top_left.classList.remove("top_left");
-            top_right.classList.remove("top_right");
-            bottom_left.classList.remove("bottom_left");
-            bottom_right.classList.remove("bottom_right");
-
-            top_left.classList.add("top_leftFull");
-            top_right.classList.add("top_rightFull");
-            bottom_left.classList.add("bottom_leftFull");
-            bottom_right.classList.add("bottom_rightFull");
-        }
-    })
-
     // form (Jarne)
 
     const form = document.querySelector('form')
@@ -89,6 +46,7 @@
             !email.value.includes('@') ||
             !email.value.includes('.')
         ) {
+            isValid = false;
             setError(emailError, ' E-mail not right');
         }
         if (message.value === '') {
@@ -96,7 +54,7 @@
             isValid = false;
         }
 
-        if (!privacy) {
+        if (privacy.checked === false) {
             setError(privacyError, 'privacy button not checked');
             isValid = false;
         }
@@ -106,6 +64,7 @@
         firstError.style.display = 'none';
         emailError.style.display = 'none';
         messageError.style.display = 'none';
+        privacyError.style.display = 'none';
 
 
     }
@@ -113,6 +72,7 @@
         firstname.value = '';
         email.value = '';
         message.value = '';
+        privacy.checked = false;
 
     }
     const setError = (element, message) => {
