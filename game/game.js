@@ -43,6 +43,8 @@ const field = document.querySelector('.field');
 const fieldOwn = document.querySelector('.fieldOwn');
 const rotate = document.querySelector('.rotate');
 
+const plons = new Audio("../images/plons.mp3");
+const bomb = new Audio("../images/bomb.mp3");
 
 let dragItem = null;
 
@@ -473,6 +475,7 @@ function checkHit(cube) {
 
             console.log('hit begin')
             info.innerHTML = 'HIT!';
+            bomb.play();
             hit = true;
         } else if (boot.eindCO[0] + "," + boot.eindCO[1] === cube.parentElement.rowIndex + ',' + cube.cellIndex) {
             if (playerTurn === 1) {
@@ -486,6 +489,7 @@ function checkHit(cube) {
             }
             console.log('hit eind')
             info.innerHTML = 'HIT!';
+            bomb.play();
             hit = true;
         } else if (boot.middenCO[0] + "," + boot.middenCO[1] === cube.parentElement.rowIndex + ',' + cube.cellIndex) {
             if (playerTurn === 1) {
@@ -499,6 +503,7 @@ function checkHit(cube) {
             }
             console.log('hit 2e plaats')
             info.innerHTML = 'HIT!';
+            bomb.play();
             hit = true;
         } else if (boot[0].length > 3) {
             if (boot.middenCO2[0] + "," + boot.middenCO2[1] === cube.parentElement.rowIndex + ',' + cube.cellIndex) {
@@ -513,6 +518,7 @@ function checkHit(cube) {
                 }
                 console.log('hit 3e plaats')
                 info.innerHTML = 'HIT!';
+                bomb.play();
                 hit = true;
             } else if (boot[0].length > 4) {
                 if (boot.middenCO3[0] + "," + boot.middenCO3[1] === cube.parentElement.rowIndex + ',' + cube.cellIndex) {
@@ -527,6 +533,7 @@ function checkHit(cube) {
                     }
                     console.log('hit 4e plaats')
                     info.innerHTML = 'HIT!';
+                    bomb.play();
                     hit = true;
                 }
             }
@@ -534,8 +541,10 @@ function checkHit(cube) {
 
     })
     if (!hit) {
-        console.log('misssss')
-        info.innerHTML = 'MIS!';
+        console.log('miss')
+        info.innerHTML = 'MISS!';
+        plons.play();
+
         if (playerTurn === 1) {
             player1Shots.misses.push([cube.parentElement.rowIndex, cube.cellIndex]);
             player1Shots.shots.push([cube.parentElement.rowIndex, cube.cellIndex]);
