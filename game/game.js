@@ -706,7 +706,7 @@ actionButton.addEventListener("click", function () {
                             info.innerHTML = `Player ${playerTurn} has won the battle`;
                             setTimeout(function () {
                                 location.href = `../endScreen/?winner=${playerTurn}`;
-                            }, 500);
+                            }, 1000);
 
                         } else {
                             if (playerTurn === 1) {
