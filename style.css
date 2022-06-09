@@ -11,6 +11,7 @@
     --primary: var(--black);
     --bg: rgba(0%, 0%, 0%, 8%);
     --error-color: #C80000FF;
+    --green: #1CF00A;
 }
 
 /*@media (prefers-color-scheme: dark) {
@@ -355,11 +356,18 @@ input.invalid {
 
 /*game */
 
+.info {
+    color: var(--green);
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+}
+
 .destroyer-container {
     display: flex;
     width: 80px;
     height: 40px;
-    background: rgba(0, 0, 0, 10%);
+    background: rgb(175, 175, 175);
     border: 2px solid blue;
     margin: 0;
 
@@ -368,7 +376,7 @@ input.invalid {
 .destroyer-container-vertical {
     width: 40px;
     height: 80px;
-    background: rgba(0, 0, 0, 10%);
+    background: rgb(175, 175, 175);
     border: 2px solid blue;
 
     display: flex;
@@ -379,7 +387,7 @@ input.invalid {
 .submarine-container {
     width: 120px;
     height: 40px;
-    background: rgba(0, 0, 0, 10%);
+    background: rgb(175, 175, 175);
     border: 2px solid blue;
 
     display: flex;
@@ -388,7 +396,7 @@ input.invalid {
 .submarine-container-vertical {
     width: 40px;
     height: 120px;
-    background: rgba(0, 0, 0, 10%);
+    background: rgb(175, 175, 175);
     border: 2px solid blue;
     display: flex;
     flex-wrap: wrap;
@@ -397,7 +405,7 @@ input.invalid {
 .cruiser-container {
     width: 120px;
     height: 40px;
-    background: rgba(0, 0, 0, 10%);
+    background: rgb(175, 175, 175);
     border: 2px solid blue;
 
     display: flex;
@@ -406,7 +414,7 @@ input.invalid {
 .cruiser-container-vertical {
     width: 40px;
     height: 120px;
-    background: rgba(0, 0, 0, 10%);
+    background: rgb(175, 175, 175);
     border: 2px solid blue;
 
     display: flex;
@@ -416,7 +424,7 @@ input.invalid {
 .battleship-container {
     width: 160px;
     height: 40px;
-    background: rgba(0, 0, 0, 10%);
+    background: rgb(175, 175, 175);
     border: 2px solid blue;
 
     display: flex;
@@ -425,7 +433,7 @@ input.invalid {
 .battleship-container-vertical {
     width: 40px;
     height: 160px;
-    background: rgba(0, 0, 0, 10%);
+    background: rgb(175, 175, 175);
     border: 2px solid blue;
 
     display: flex;
@@ -435,7 +443,7 @@ input.invalid {
 .carrier-container {
     width: 200px;
     height: 40px;
-    background: rgba(0, 0, 0, 10%);
+    background: rgb(175, 175, 175);
     border: 2px solid blue;
     display: flex;
 }
@@ -443,7 +451,7 @@ input.invalid {
 .carrier-container-vertical {
     width: 40px;
     height: 200px;
-    background: rgba(0, 0, 0, 10%);
+    background: rgb(175, 175, 175);
     border: 2px solid blue;
 
     display: flex;
@@ -456,12 +464,13 @@ input.invalid {
 }
 
 .ship:hover {
-    background: rgba(0, 0, 0, 5%);
+    background: rgb(175, 175, 175,80%);
 }
 
 #table {
     display: flex;
     align-items: end;
+    color: var(--green);
     gap: 0.7rem;
 }
 
@@ -489,8 +498,6 @@ table.field {
     table-layout: fixed;
     width: 410px;
     height: 410px;
-
-
 }
 
 tbody {
@@ -507,7 +514,8 @@ tbody {
 .field td.cube {
     height: 41px;
     width: 41px;
-    border: solid #000 1px;
+    border: solid var(--green) 1px;
+    background-color: var(--black);
     border-collapse: collapse;
     padding: 0;
 }
@@ -521,55 +529,71 @@ tbody {
 table.fieldOwn {
     border-spacing: 0.04rem;
     padding: 0;
+    margin: 1rem;
     table-layout: fixed;
     width: 210px;
     height: 210px;
+}
 
-
+.fieldOwn th {
+    color: var(--green);
 }
 
 .fieldOwn td.own {
     height: 21px;
     width: 21px;
-    border: solid black 1px;
+    border: solid var(--green) 1px;
+    background-color: var(--black);
     border-collapse: collapse;
     padding: 0;
 }
 
-
+.background {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("/images/armour-metal-background-rivets-22357896.jpg")no-repeat center;
+    background-size: cover;
+    height: 90vh;
+}
 main.gamePage {
     display: flex;
     justify-content: center;
     gap: 10rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
+.fieldTable{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.Ownfield{
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
+}
 .invisible {
     display: none;
 }
 
 
 .grid-display {
-    border: blue solid 2px;
+    border: var(--green) solid 3px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    padding-top: 0.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
     height: 20rem;
     width: 15rem;
 }
-
+.action{
+    margin-top: 5rem;
+}
 .rotate {
-    border: rgb(0, 0, 131) solid 3px;
-    background-color: rgb(0, 42, 255);
-    color: #fff;
-    margin-bottom: 2rem;
-    padding: 0.5rem 1rem;
-    border-radius: 2px;
+margin-bottom: 1rem;
 }
 
-.rotate:hover {
-    background-color: rgb(1, 5, 56);
-    border: rgb(42, 42, 248) solid 3px;
-}
 
 .popUp {
     display: none;
@@ -766,5 +790,3 @@ footer {
 
 
 /* ANIMATIONS */
-
-

@@ -7,11 +7,13 @@ const submarine = document.querySelector('#submarine');
 const cruiser = document.querySelector('#cruiser');
 const battleship = document.querySelector('#battleship');
 const carrier = document.querySelector('#carrier');
+const leftSide = document.querySelector('.Ownfield');
 
 let vertical = false;
 let placed = false;
 let ready = false;
 let border = ' 2px solid blue';
+let back = 'rgba(175, 175, 175,80%)';
 
 const info = document.querySelector('.info');
 const popUp = document.querySelector('.popUp');
@@ -91,7 +93,7 @@ function dragDrop() {
 
             }]
         destroyerCO.beginCO = [this.parentElement.rowIndex, this.cellIndex];
-        this.style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+        this.style.backgroundColor = back;
         this.style.border = border;
         console.log('check turn: ' + playerTurn);
 
@@ -99,7 +101,7 @@ function dragDrop() {
             destroyerCO.middenCO = [this.parentElement.rowIndex, this.cellIndex + 1];
             destroyerCO.eindCO = [this.parentElement.rowIndex, this.cellIndex + 1];
 
-            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.border = border;
 
             if (playerTurn === 1) {
@@ -113,7 +115,7 @@ function dragDrop() {
             destroyerCO.middenCO = [this.parentElement.rowIndex + 1, this.cellIndex];
             destroyerCO.eindCO = [this.parentElement.rowIndex + 1, this.cellIndex];
 
-            field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.border = border;
 
             if (playerTurn === 1) {
@@ -138,16 +140,16 @@ function dragDrop() {
 
             }]
         submarineCO.beginCO = [this.parentElement.rowIndex, this.cellIndex];
-        this.style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+        this.style.backgroundColor = back;
         this.style.border = border;
 
         if (!vertical) {
             submarineCO.middenCO = [this.parentElement.rowIndex, this.cellIndex + 1];
             submarineCO.eindCO = [this.parentElement.rowIndex, this.cellIndex + 2];
 
-            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.border = border;
-            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.border = border;
 
             if (playerTurn === 1) {
@@ -160,9 +162,9 @@ function dragDrop() {
             submarineCO.middenCO = [this.parentElement.rowIndex + 1, this.cellIndex];
             submarineCO.eindCO = [this.parentElement.rowIndex + 2, this.cellIndex];
 
-            field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.border = border;
-            field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.border = border;
 
             if (playerTurn === 1) {
@@ -187,16 +189,16 @@ function dragDrop() {
 
             }]
         cruiserCO.beginCO = [this.parentElement.rowIndex, this.cellIndex];
-        this.style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-        this.style.border = ' 2px solid blue';
+        this.style.backgroundColor = back;
+        this.style.border = border;
 
         if (!vertical) {
             cruiserCO.middenCO = [this.parentElement.rowIndex, this.cellIndex + 1];
             cruiserCO.eindCO = [this.parentElement.rowIndex, this.cellIndex + 2];
 
-            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.border = border;
-            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.border = border;
 
             if (playerTurn === 1) {
@@ -209,9 +211,9 @@ function dragDrop() {
             cruiserCO.middenCO = [this.parentElement.rowIndex + 1, this.cellIndex];
             cruiserCO.eindCO = [this.parentElement.rowIndex + 2, this.cellIndex];
 
-            field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.border = border;
-            field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.border = border;
 
             if (playerTurn === 1) {
@@ -236,19 +238,19 @@ function dragDrop() {
             }]
 
         battleshipCO.beginCO = [this.parentElement.rowIndex, this.cellIndex];
-        this.style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-        this.style.border = ' 2px solid blue';
+        this.style.backgroundColor = back;
+        this.style.border = border;
 
         if (!vertical) {
             battleshipCO.middenCO = [this.parentElement.rowIndex, this.cellIndex + 1];
             battleshipCO.middenCO2 = [this.parentElement.rowIndex, this.cellIndex + 2];
             battleshipCO.eindCO = [this.parentElement.rowIndex, this.cellIndex + 3];
 
-            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.border = border;
-            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.border = ' 2px solid blue';
-            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 3].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.backgroundColor = back;
+            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.border = border;
+            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 3].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 3].style.border = border;
 
             if (playerTurn === 1) {
@@ -262,11 +264,11 @@ function dragDrop() {
             battleshipCO.middenCO2 = [this.parentElement.rowIndex + 2, this.cellIndex];
             battleshipCO.eindCO = [this.parentElement.rowIndex + 3, this.cellIndex];
 
-            field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.border = border;
-            field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.border = border;
-            field.rows[this.parentElement.rowIndex + 3].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex + 3].cells[this.cellIndex].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex + 3].cells[this.cellIndex].style.border = border;
 
             if (playerTurn === 1) {
@@ -291,8 +293,8 @@ function dragDrop() {
 
             }]
         carrierCO.beginCO = [this.parentElement.rowIndex, this.cellIndex];
-        this.style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-        this.style.border = ' 2px solid blue';
+        this.style.backgroundColor = back;
+        this.style.border = border;
         if (!vertical) {
 
             carrierCO.middenCO = [this.parentElement.rowIndex, this.cellIndex + 1];
@@ -300,13 +302,13 @@ function dragDrop() {
             carrierCO.middenCO3 = [this.parentElement.rowIndex, this.cellIndex + 3];
             carrierCO.eindCO = [this.parentElement.rowIndex, this.cellIndex + 4];
 
-            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 1].style.border = border;
-            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 2].style.border = border;
-            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 3].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 3].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 3].style.border = border;
-            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 4].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 4].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex].cells[this.cellIndex + 4].style.border = border;
             if (playerTurn === 1) {
                 player1Field.push(carrierCO);
@@ -321,13 +323,13 @@ function dragDrop() {
             carrierCO.middenCO3 = [this.parentElement.rowIndex + 3, this.cellIndex];
             carrierCO.eindCO = [this.parentElement.rowIndex + 4, this.cellIndex];
 
-            field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex + 1].cells[this.cellIndex].style.border = border;
-            field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex + 2].cells[this.cellIndex].style.border = border;
-            field.rows[this.parentElement.rowIndex + 3].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex + 3].cells[this.cellIndex].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex + 3].cells[this.cellIndex].style.border = border;
-            field.rows[this.parentElement.rowIndex + 4].cells[this.cellIndex].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
+            field.rows[this.parentElement.rowIndex + 4].cells[this.cellIndex].style.backgroundColor = back;
             field.rows[this.parentElement.rowIndex + 4].cells[this.cellIndex].style.border = border;
 
             if (playerTurn === 1) {
@@ -349,16 +351,16 @@ function dragDrop() {
 
 function resetField() {
     grid.forEach(cell => {
-        cell.style.background = 'none';
-        cell.style.border = '1px solid #000';
+        cell.style.background = 'rgb(0,0,0)';
+        cell.style.border = '1px solid var(--green)';
     })
 
 }
 
 function resetOwnField() {
     gridOwn.forEach(cell => {
-        cell.style.background = 'none';
-        cell.style.border = '1px solid #000';
+        cell.style.background = 'rgb(0,0,0)';
+        cell.style.border = '1px solid var(--green)';
     })
 
 }
@@ -374,24 +376,24 @@ function setOwnfield() {
 
     if (playerTurn === 1) {
         player1Field.forEach(boot => {
-            fieldOwn.rows[boot.beginCO[0]].cells[boot.beginCO[1]].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-            fieldOwn.rows[boot.beginCO[0]].cells[boot.beginCO[1]].style.border = '2px solid blue';
+            fieldOwn.rows[boot.beginCO[0]].cells[boot.beginCO[1]].style.backgroundColor = back;
+            fieldOwn.rows[boot.beginCO[0]].cells[boot.beginCO[1]].style.border = border;
 
-            fieldOwn.rows[boot.middenCO[0]].cells[boot.middenCO[1]].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-            fieldOwn.rows[boot.middenCO[0]].cells[boot.middenCO[1]].style.border = '2px solid blue';
+            fieldOwn.rows[boot.middenCO[0]].cells[boot.middenCO[1]].style.backgroundColor = back;
+            fieldOwn.rows[boot.middenCO[0]].cells[boot.middenCO[1]].style.border = border;
 
             if (boot[0].length > 3) {
 
-                fieldOwn.rows[boot.middenCO2[0]].cells[boot.middenCO2[1]].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-                fieldOwn.rows[boot.middenCO2[0]].cells[boot.middenCO2[1]].style.border = '2px solid blue';
+                fieldOwn.rows[boot.middenCO2[0]].cells[boot.middenCO2[1]].style.backgroundColor = back;
+                fieldOwn.rows[boot.middenCO2[0]].cells[boot.middenCO2[1]].style.border = border;
 
             }
             if (boot[0].length > 4) {
-                fieldOwn.rows[boot.middenCO3[0]].cells[boot.middenCO3[1]].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-                fieldOwn.rows[boot.middenCO3[0]].cells[boot.middenCO3[1]].style.border = '2px solid blue';
+                fieldOwn.rows[boot.middenCO3[0]].cells[boot.middenCO3[1]].style.backgroundColor = back;
+                fieldOwn.rows[boot.middenCO3[0]].cells[boot.middenCO3[1]].style.border = border;
             }
-            fieldOwn.rows[boot.eindCO[0]].cells[boot.eindCO[1]].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-            fieldOwn.rows[boot.eindCO[0]].cells[boot.eindCO[1]].style.border = '2px solid blue';
+            fieldOwn.rows[boot.eindCO[0]].cells[boot.eindCO[1]].style.backgroundColor = back;
+            fieldOwn.rows[boot.eindCO[0]].cells[boot.eindCO[1]].style.border = border;
 
 
         })
@@ -400,24 +402,24 @@ function setOwnfield() {
     } else {
         player2Field.forEach(boot => {
 
-            fieldOwn.rows[boot.beginCO[0]].cells[boot.beginCO[1]].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-            fieldOwn.rows[boot.beginCO[0]].cells[boot.beginCO[1]].style.border = '2px solid blue';
+            fieldOwn.rows[boot.beginCO[0]].cells[boot.beginCO[1]].style.backgroundColor = back;
+            fieldOwn.rows[boot.beginCO[0]].cells[boot.beginCO[1]].style.border = border;
 
-            fieldOwn.rows[boot.middenCO[0]].cells[boot.middenCO[1]].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-            fieldOwn.rows[boot.middenCO[0]].cells[boot.middenCO[1]].style.border = '2px solid blue';
+            fieldOwn.rows[boot.middenCO[0]].cells[boot.middenCO[1]].style.backgroundColor = back;
+            fieldOwn.rows[boot.middenCO[0]].cells[boot.middenCO[1]].style.border = border;
 
             if (boot[0].length > 3) {
 
-                fieldOwn.rows[boot.middenCO2[0]].cells[boot.middenCO2[1]].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-                fieldOwn.rows[boot.middenCO2[0]].cells[boot.middenCO2[1]].style.border = '2px solid blue';
+                fieldOwn.rows[boot.middenCO2[0]].cells[boot.middenCO2[1]].style.backgroundColor = back;
+                fieldOwn.rows[boot.middenCO2[0]].cells[boot.middenCO2[1]].style.border = border;
 
             }
             if (boot[0].length > 4) {
-                fieldOwn.rows[boot.middenCO3[0]].cells[boot.middenCO3[1]].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-                fieldOwn.rows[boot.middenCO3[0]].cells[boot.middenCO3[1]].style.border = '2px solid blue';
+                fieldOwn.rows[boot.middenCO3[0]].cells[boot.middenCO3[1]].style.backgroundColor = back;
+                fieldOwn.rows[boot.middenCO3[0]].cells[boot.middenCO3[1]].style.border = border;
             }
-            fieldOwn.rows[boot.eindCO[0]].cells[boot.eindCO[1]].style.backgroundColor = 'rgba(0, 0, 0, 10%)';
-            fieldOwn.rows[boot.eindCO[0]].cells[boot.eindCO[1]].style.border = '2px solid blue';
+            fieldOwn.rows[boot.eindCO[0]].cells[boot.eindCO[1]].style.backgroundColor = back;
+            fieldOwn.rows[boot.eindCO[0]].cells[boot.eindCO[1]].style.border = border;
 
 
         })
@@ -433,7 +435,7 @@ function setHitfield() {
 
         })
         player1Shots.misses.forEach(mis => {
-            field.rows[mis[0]].cells[mis[1]].style.backgroundColor = 'rgba(0, 0, 0, 60%)';
+            field.rows[mis[0]].cells[mis[1]].style.backgroundColor = 'rgb(16,95,227)';
 
         })
     } else {
@@ -443,7 +445,7 @@ function setHitfield() {
 
         })
         player2Shots.misses.forEach(mis => {
-            field.rows[mis[0]].cells[mis[1]].style.backgroundColor = 'rgba(0, 0, 0, 60%)';
+            field.rows[mis[0]].cells[mis[1]].style.backgroundColor = 'rgb(16,95,227)';
 
         })
 
@@ -645,6 +647,7 @@ actionButton.addEventListener("click", function () {
 
     if (player1Field.length === 5 && player2Field.length === 5) {
         actionButton.style.display = 'none';
+        leftSide.style.justifyContent = 'flex-end';
         ready = true;
         playerTurn = 1;
         info.innerHTML = 'Player 1 take your first shot';
