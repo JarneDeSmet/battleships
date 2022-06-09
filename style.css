@@ -464,7 +464,7 @@ input.invalid {
 }
 
 .ship:hover {
-    background: rgb(175, 175, 175,80%);
+    background: rgb(175, 175, 175, 80%);
 }
 
 #table {
@@ -549,29 +549,33 @@ table.fieldOwn {
 }
 
 .background {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("/images/armour-metal-background-rivets-22357896.jpg")no-repeat center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/images/armour-metal-background-rivets-22357896.jpg") no-repeat center;
     background-size: cover;
     height: 90vh;
 }
+
 main.gamePage {
     display: flex;
     justify-content: center;
     gap: 10rem;
     margin-top: 1rem;
 }
-.fieldTable{
+
+.fieldTable {
     display: flex;
     gap: 2rem;
     justify-content: center;
     align-items: center;
 }
-.Ownfield{
+
+.Ownfield {
     height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
 }
+
 .invisible {
     display: none;
 }
@@ -587,11 +591,13 @@ main.gamePage {
     height: 20rem;
     width: 15rem;
 }
-.action{
+
+.action {
     margin-top: 5rem;
 }
+
 .rotate {
-margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 
@@ -609,6 +615,32 @@ margin-bottom: 1rem;
     border-radius: 5px;
 }
 
+/*how to play*/
+.howToPlay main {
+    display: flex;
+    flex-direction: column;
+}
+
+.howToPlay h1 {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.howToPlay p {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 39rem;
+}
+
+.howToPlay a {
+    display: flex;
+    margin: 0 auto;
+    width: fit-content;
+}
 
 /*winner*/
 .winner {
