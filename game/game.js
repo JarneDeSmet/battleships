@@ -718,7 +718,7 @@ actionButton.addEventListener("click", function () {
                             }
                             setTimeout(function () {
                                 popUp.style.display = 'flex';
-                            }, 300);
+                            }, 1000);
 
                             readyButton.addEventListener('click', function () {
                                 popUp.style.display = 'none';
